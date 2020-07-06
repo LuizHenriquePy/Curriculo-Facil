@@ -1,5 +1,95 @@
 from tkinter import *
 
+
+pessoa = {
+    "PRIMEIRAS INFORMAÇÕES": {
+        "TITULO": "",
+        "NOME": None,
+        "ENDEREÇO": None,
+        "TELEFONES": None,
+        "EMAILS": None
+        },
+    
+    "DADOS PESSOAIS": {
+        "TITULO": "DADOS PESSOAIS",
+        "DATA DE NASCIMENTO": None,
+        "NATURALIDADE": None,
+        "NASCIONALIDADE": None,
+        "ESTADO CIVIL": None,
+        "HABILITAÇÂO": None
+        },
+    
+    "FORMACÂO": {
+        "TITULO": "FORMACÂO",
+        "GRAU": None,
+        "STATUS": None
+        },
+    
+    "CURSOS": {
+        "TITULO": "CURSOS",
+        "NOME": None,
+        "LOCAL": None,
+        "STATUS": None
+        },
+
+    "EXPERIÊNCIAS PROFISSIONAIS": {
+        "TITULO": "EXPERIÊNCIAS PROFISSIONAIS",
+        "EMPREGO1": {
+            "EMPRESA": None,
+            "FUNÇÂO": None,
+            "PERÌODO": None
+            },
+        "EMPREGO2": {
+            "EMPRESA": None,
+            "FUNÇÂO": None,
+            "PERÌODO": None
+            },
+        "EMPREGO2": {
+            "EMPRESA": None,
+            "FUNÇÂO": None,
+            "PERÌODO": None
+            }
+        },
+    
+    "EXPERIÊNCIAS PROFISSIONAIS SEM REGISTRO": {
+        "TITULO": "EXPERIÊNCIAS PROFISSIONAIS SEM REGISTRO",
+        "EMPREGO1": {
+            "EMPRESA": None,
+            "FUNÇÂO": None,
+            "PERÌODO": None
+            },
+        "EMPREGO2": {
+            "EMPRESA": None,
+            "FUNÇÂO": None,
+            "PERÌODO": None
+            },
+        "EMPREGO2": {
+            "EMPRESA": None,
+            "FUNÇÂO": None,
+            "PERÌODO": None
+            }
+        },
+
+    "OBJETIVO": {
+        "TITULO": "OBJETIVO",
+        "TEXTO": None
+        },
+
+    "INFORMAÇÔES COMPLEMENTARES": {
+        "TITULO": "INFORMAÇÔES COMPLEMENTARES",
+        "TEXTO": None
+        },
+
+    "PERFIL":{
+        "TITULO": "INFORMAÇÔES COMPLEMENTARES",
+        "TEXTO": None
+        }
+    }
+
+
+OEDEM_DAS_CAIXAS_NA_TELA = []
+
+
 class Caixa_de_dados:
 
     def __init__(self, row, window):
@@ -23,7 +113,9 @@ class Caixa_de_dados:
 
         
     def main(self):
-        pass
+
+        self.botao_subir()
+        self.botao_descer()
 
 
     def _get(self):
@@ -31,6 +123,15 @@ class Caixa_de_dados:
 
 
     def _set(self):
+        pass
+
+
+    def botao_subir(self):
+
+        self.bt_subir = Button(self.fr_botoes_subir_descer, text=" /\ ", height=5, command=)
+
+
+    def botao_descer(self):
         pass
 
 
@@ -54,6 +155,8 @@ class Primeiras_info(Caixa_de_dados):
 
     def main(self):
 
+        super().main()
+        
         self.titulo()
         self.nome()
         self.endereco()
