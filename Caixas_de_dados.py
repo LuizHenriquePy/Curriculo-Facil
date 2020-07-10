@@ -3,11 +3,18 @@ from tkinter import *
 
 pessoa = {
     "PRIMEIRAS INFORMAÇÕES": {
-        "TITULO": "",
+        "TITULO": "NOME",
         "NOME": None,
-        "ENDEREÇO": None,
-        "TELEFONES": None,
-        "EMAILS": None
+        "ENDEREÇO": {
+            "LOGRADOURO": None,
+            "NOME DO LOGRADOURO": None,
+            "NÚMERO": None,
+            "COMPLEMENTO": None,
+            "BAIRRO": None,
+            "CEP": None
+            },
+        "TELEFONES": [],
+        "EMAILS": []
         },
     
     "DADOS PESSOAIS": {
@@ -100,6 +107,19 @@ class Caixa_de_dados:
         self.PADX = 2
         self.PADY = 2
 
+        
+    def main(self):
+        self.frames()
+        
+        self.botao_subir()
+        self.botao_descer()
+
+        self.botao_editar_titulo()
+        self.titulo()
+        self.botao_deletar()
+
+
+    def frames(self):
         self.main_fr = Frame(self.window)
         self.main_fr.grid(row=self.row, column=0)
 
@@ -109,37 +129,51 @@ class Caixa_de_dados:
         self.fr_entrada_de_dados = Frame(self.main_frame)
         self.fr_entrada_de_dados.pack(side=RIGHT)
 
-        self.dict_de_dados = {}
-
-        
-    def main(self):
-
-        self.botao_subir()
-        self.botao_descer()
+        self.fr_titulo = Frame(fr_entrada_de_dados)
+        self.fr_titulo.grid(row=0, column=0)
 
 
-    def _get(self):
-        pass
+    def titulo(self):
+        self.ent_titulo = Entry(self.fr_titulo)
+        self.ent_titulo.pack(side=LEFT)
 
 
-    def _set(self):
-        pass
+    def botao_editar_titulo(self):
+        self.bt_editar_titulo = Button(self.fr_titulo, text="E", command=self.func_do_botao_editar_titulo)
+        self.bt_editar_titulo.pack(side=LEFT)
+
+
+    def func_do_botao_editar_titulo(self):
+        if self.bt_editar_titulo["state"] == "disabled":
+            self.bt_editar_titulo["state"] = "normal"
+        else:
+            self.bt_editar_titulo["state"] = "disabled"
+
+
+    def botao_deletar(self):
+        self.bt_deletar = Button(self.fr_titulo, text="X", bg="red", command=self.main_fr.destroy)
+        self.bt_deletar.pack(side=RIGHT)
 
 
     def botao_subir(self):
-
-        self.bt_subir = Button(self.fr_botoes_subir_descer, text=" /\ ", height=5, command=)
+        self.bt_subir = Button(self.fr_botoes_subir_descer, text=" /\ ", height=5)
+        self.bt_subir.pack()
 
 
     def botao_descer(self):
-        pass
+        self.bt_descer = Button(self.fr_botoes_subir_descer, text=" \/ ", height=5)
+        self.bt_descer.pack()
 
 
     def botao_limpar(self):
         pass
 
+    
+    def _get(self):
+        pass
 
-    def botao_deletar(self):
+
+    def _set(self):
         pass
 
 
@@ -164,6 +198,10 @@ class Primeiras_info(Caixa_de_dados):
         self.email()
 
 
+    def frames(self):
+        super().frames()
+
+
     def _get(self):
         pass
 
@@ -182,6 +220,10 @@ class Primeiras_info(Caixa_de_dados):
         self.cx_titulo.insert(0, "Primeiras Informações")
         self.cx_titulo.config(state="disabled")
         
+
+
+    def botao_editar_titulo(self):
+        pass
 
 
     def botao_deletar(self):
